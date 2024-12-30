@@ -1,0 +1,16 @@
+HTTP Methods
+- POST
+- GET
+- PUT
+- REMOVE
+
+MIDDLEWARE:
+Json converstion.
+
+REQUEST PARSIN
+- Queries
+- Url Parameters
+- Post Body
+- Typed Responses
+
+Force Async
