@@ -1,0 +1,34 @@
+name: Deploy Ruby Gem
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # This triggers deployment only on version tags, e.g., v0.1.0, v1.0.0, etc.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.3  # Change this to the Ruby version you're using
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build gem
+        run: |
+          gem build TeleRuby.gemspec  # Change this to your gem's name
+
+      - name: Deploy gem to RubyGems
+        run: gem push HTTPRuby-*.gem  # This will push the gem with the version you just built
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}  # Make sure to add the RubyGems API key as a secret
+

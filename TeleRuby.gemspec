@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
-  spec.name          = "TeleRuby"
-  spec.version       = "0.1.0"
+  spec.name          = "HTTPRuby"
+  spec.version       = "1.0.0"
   spec.authors       = ["Bryan Sigaran"]
   spec.email         = ["bryanohss@gmail.com"]
   spec.summary       = "A lightweight HTTP server framework for Ruby"
